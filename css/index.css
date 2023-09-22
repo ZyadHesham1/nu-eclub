@@ -60,10 +60,11 @@ a {
 
 /* ******* header backgrouns ********* */
 
-.header-area{
-  background-image: url('img/background.png');
-  background-size: 100%;
-  background-repeat: no-repeat;
+.header-background{
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -1;
 }
 
 /**navbar css**/
@@ -72,13 +73,6 @@ a {
   max-width: 90px;
 }
 
-.header-area{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-image: url('img/Web Design.png');
-}
 
 
 .navbar{
@@ -91,16 +85,13 @@ a {
   margin-left: 40px; 
 }
 
-.nav-item .nav-link{
-  font-size: 30px;
-  font-weight: 500;
-}
+
 
 .navbar-nav .nav-item .nav-link{
   position: relative;
   padding: 10px 0;
-  font-size: 18px;
-  font-weight: 400;
+  font-size: 20px;
+  font-weight: 600;
   color:#0d0d0c ;
 }
 
@@ -129,8 +120,8 @@ a {
 }
 
 .image-1{
-  height: 200px;
-  width: 200px;
+  height: 300px;
+  width: 300px;
   border-radius: 50%;
   border-width: 2px;
   border-color: #041e27;
@@ -234,13 +225,7 @@ a {
 .header-image{
 
   position: relative;
-  padding-top: 100px;
+  padding-top: 10px;
   animation: pulse 10s ease infinite;
 }
 
-.header-background{
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: -1;
-}
