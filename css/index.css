@@ -80,6 +80,13 @@ a {
   padding: auto;
 }
 
+.navbar-area{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9;
+}
 .navbar-nav .nav-item{
   position: relative;
   margin-left: 40px; 
@@ -155,7 +162,7 @@ a {
 
 .header-hero{
   position: relative;
-  top: 200px;
+  top: 300px;
   height: 800px;
   background-position: bottom center;
 }
