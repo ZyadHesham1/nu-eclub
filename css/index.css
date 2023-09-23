@@ -236,3 +236,12 @@ a {
   animation: pulse 10s ease infinite;
 }
 
+/* ******* mission section css ********** */
+
+.mission-section .content{
+    padding: 30px;
+    text-align: center;
+}
+.text-title{
+  text-align: center;
+}
