@@ -85,7 +85,22 @@ a {
   max-width: 90px;
 }
 
+@media only screen and (min-width:768px) and (max-width: 991px), (max-width: 767px){
+  .navbar-collapse{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 5px 12 px;
+    background-color: white;
+    box-sizing: 0 15px 20px 0 rgb(0 0 0 /10%);
 
+  }
+}
+
+.navbar-toggler:focus{
+  box-shadow: none;
+}
 
 .navbar-area{
   position: absolute;
@@ -157,6 +172,7 @@ a {
   
 }
 
+
 /* ******* ALL Buttons ********/
 
 .learn-more{
@@ -178,6 +194,37 @@ a {
   border-color: transparent;
 }
 
+@media only screen and (max-width: 991px) {
+
+  .learn-more {
+    display: flex;
+    padding: 0 25px;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 55px;
+    border: 2px solid #19a6d4;
+    border-radius: 30px;
+    background-color: #19a6d4;
+    color: white;
+    margin: auto;
+  }
+}
+
+.join-btn{
+  display: flex;
+  padding: 0 25px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 55px;
+  border: 2px solid #19a6d4;
+  border-radius: 30px;
+  background-color: #19a6d4;
+  color: white;
+  margin: auto;
+}
+
 /*      home css       */
 
 .header-hero{
@@ -197,6 +244,13 @@ a {
 
 .header-image {
   margin-left: 20px;
+}
+
+@media only screen and (min-width:768px) and (max-width: 991px), (max-width: 767px){
+  .header-image img{
+    display: none;
+
+  }
 }
 
 
