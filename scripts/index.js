@@ -21,5 +21,15 @@ function revealContent() {
       x.style.display = "block";
     } else {
       x.style.display = "none";
+
     }
   }
+
+  function changeTitle() {
+    var button = document.getElementById("joinButton");
+    if (button.textContent === "Wanna Join?") {
+      button.textContent = "Fill out your Info below!";
+    } else {
+      button.textContent = "Wanna Join?";
+    }
+}
