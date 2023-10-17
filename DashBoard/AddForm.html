@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+       
+        <link rel = "icon" href =  "images/icon.png"  type = "image/x-icon">
+
+        <link rel="stylesheet" href="../css/default.css">  
+
+        <link rel="stylesheet" href="../css/index.css">  
+
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../css/Dash.css">
+    <title>AddForm </title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2">
+                <aside>
+                    <div class="top">
+                        <div class="logo">
+                            <img src="../images/logo.png" alt="logo">
+                        </div>
+                        <div class="close" id="close-btn">
+                            <i class="fa-solid fa-xmark"></i>
+                        </div>
+                    </div>
+                    <div class="sidebar">
+                        <a href="dash.html" >
+                            <i class="fa-solid fa-gauge"></i>
+                            <h3>DashBoard</h3>
+                        </a>
+                        <a href="AddForm.html"  class="active">
+                            <span class="material-icons-sharp">
+                                quiz
+                                </span>
+                            <h3> Add Form</h3>
+                        </a>
+
+
+                        <a href="approve.html" >
+                            <i class="fa-solid fa-user-plus"></i>
+                            <h3>Requests</h3>
+                        </a> 
+               
+                        <button  onclick="module.logOut()">
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                            <h3>Log Out</h3>
+                        </button>
+                    </div>
+                </aside>
+            </div>
+            <!--------------------END ASIDE  ------------------>
+            <div class=" col-md-10 ">
+                <main>
+                    <div class="row">
+                        
+                        <div class="col-md-6">
+                            <h1>Add Form</h1>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <input type="text" placeholder="Name Of The Form" class="form_input" id="Form_Title_Input">
+                                  
+                                </div>
+                                <div class="col-md-4">
+                                    <textarea type="text" placeholder="Description For The Form" cols="80" rows="3" class="form_input" id="Form_detail_Input"></textarea>
+
+                                </div>
+                                <div class="col-md-4">
+                                    <select name="Form_for_input" id="Form_for_input" class="form_input" >
+                                        <option value="General">General</option>
+                                        <option value="Marketing">Marketing</option>
+                                        <option value="br">br</option>
+                                        <option value="HR">HR</option>
+                                        <option value="Academic">Academic</option>
+                                    </select>
+                                </div>
+                            
+                            </div>
+                            <div class="row">
+                                <div class="formSelctor" id="formSelctor">
+                                    <div class="addInputs">
+                                        <h2>Add Input : </h2>
+                                        <label for="typeOfInput">Select type of The Input :</label>
+                                        <select name="TypeOfInput" id="typeOfInput" class="form_input">
+                                            <option value="choose">select</option>
+                                            <option value="text">Text Input</option>
+                                            <option value="textArea">Text Area</option>
+                                            <option value="Choice">Choice</option>
+                                            <option value="uploadFile">Upload File</option>
+                                        </select>
+                                        <button class="AddNewInput" id="AddNewInput">Add</button>
+                                    </div> 
+                                    <div id="inputsAdded">
+
+                                    </div>
+
+
+                                    <button class="AddNewInput">Save</button>
+
+                                </div>
+
+                              
+                            </div>
+                        </div>
+                        <div class=" col-md-6 ">
+                            <div class="left float-start ms-3" style="margin-top: 0.2rem;">
+                                <div class="top">
+                                    <button id="menu-btn">
+                                        <span class="material-icons-sharp">
+                                            menu
+                                        </span>
+                                    </button>
+                                    <div class="theme-toggler">
+                                        <span class="material-icons-sharp active">
+                                            light_mode
+                                        </span>
+                                        <span class="material-icons-sharp">
+                                            dark_mode
+                                        </span>
+                                    </div>
+                                    <div class="profile">
+                                        <div class="info">
+                                            <p>اهلا بك،<b id="userName"> </b></p>
+                                        </div>
+                                        <div class="profile-photo">
+                                            <img src="../images/profile-1.jpg" alt="profile photo">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END OF TOP -->
+                            </div>
+
+
+
+
+
+
+
+
+
+
+                            <section class="registration mt-45" id="registration">
+                                <div class="container">
+                                    <h1 class="text-title mb-30 mt-50 title-frame" id="Form_Title"></h1>
+                                    <form >
+                                        <div class="group" id="Form">
+
+                                        </div>
+                                      <!-- <div class="form-group">
+                                        <label for="formGroupExampleInput">Full Name</label>
+                                        <textarea type="text" class="form-control" id="formGroupExampleInput" placeholder="Your Full Name" required></textarea>
+                                      </div> -->
+
+
+                                                     
+                                    <!-- <fieldset class="form-group">
+                                        <div class="row">
+                                          <legend class="col-form-label col-sm-2 pt-0 w-25">Scfasfsafafasfasgagfashool</legend>
+                                          <div class="col-sm-10">
+                                            <div class="form-check">
+                                              <input class="form-check-input" type="radio" name="grid fa f fRadios" id="gridRadios1" value="option1" required >
+                                              <label class="form-check-label" for="gridRadios1">
+                                                Business
+                                              </label>
+                                            </div>
+                                            <div class="form-check">
+                                              <input class="form-check-input" type="radio" name="grid fa f fRadios" id="gridRadios2" value="option2" required >
+                                              <label class="form-check-label" for="gridRadios2">
+                                                Biotechnology
+                                              </label>
+                                            </div>
+                                            <div class="form-check ">
+                                              <input class="form-check-input" type="radio" name="grid fa f fRadios" id="gridRadios3" value="option3" required>
+                                              <label class="form-check-label" for="gridRadios3">
+                                                Computer Science
+                                              </label>
+                                            </div>
+                                            <div class="form-check ">
+                                              <input class="form-check-input" type="radio" name="grid fa f fRadios" id="gridRadios4" value="option4" required >
+                                              <label class="form-check-label" for="gridRadios4">
+                                                Engineering
+                                              </label>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </fieldset>
+                                  -->
+                
+                                    <button class="next-btn mx-auto">
+                                      <span class="btn-text">Submit</span>
+                                    </button>
+                    
+                    
+                    
+                    
+                                  </form>
+                                </div>
+                            </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        </div>
+
+
+
+                    </div>
+               
+                </main>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script>
+        module = {}
+    </script>
+
+    <script src="../css/bootstrap.bundle.min.js"></script>
+    <script src="../css/bootstrap.min.js"></script>
+    <script type="module" src="./js/AddForm.js"></script>
+
+</body>
+
+
+</html>

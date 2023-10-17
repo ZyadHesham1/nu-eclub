@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+
+    <meta charset="UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" 
+
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" 
+    
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+   
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../css/Dash.css">
+
+    <link rel = "icon" href =  "images/icon.png"  type = "image/x-icon">
+
+    <title>Teacher | Dashboard</title>
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-2" >
+                <aside>
+                    <div class="top">
+                        <div class="logo">
+                            <img src="../images/logo.png" alt="logo">
+                        </div>
+                        <div class="close" id="close-btn">
+                            <i class="fa-solid fa-xmark"></i>
+                        </div>
+                    </div>
+                    <div class="sidebar">
+                        <a href="dash.html" class="active">
+                            <i class="fa-solid fa-gauge"></i>
+                            <h3>DashBoard</h3>
+                        </a>
+                        <a href="AddForm.html">
+                            <span class="material-icons-sharp">
+                                quiz
+                                </span>
+                            <h3> Add Form</h3>
+                        </a>
+
+
+                        <a href="approve.html" >
+                            <i class="fa-solid fa-user-plus"></i>
+                            <h3>Requests</h3>
+                        </a> 
+               
+                        <button  onclick="module.logOut()">
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                            <h3>Log Out</h3>
+                        </button>
+                    </div>
+                </aside>
+            </div>
+            <!--------------------END ASIDE  ------------------>
+
+            <div class="col-lg-10 ">
+                <main>       
+               
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="left">
+                                <div class="top">
+                                    <button id="menu-btn">
+                                        <span class="material-icons-sharp">
+                                            menu
+                                        </span>
+                                    </button>
+                                    <div class="theme-toggler">
+                                        <span class="material-icons-sharp active">
+                                            light_mode
+                                        </span>
+                                        <span class="material-icons-sharp">
+                                            dark_mode
+                                        </span>
+                                    </div>
+                                    <div class="profile">
+                                        <div class="info">
+                                            <p>Welcome ,<b id="userName"> </b></p>
+                                        </div>
+                                        <div class="profile-photo">
+                                            <a href="settings.html"><img id="profile_photo" alt="profile photo"></a>
+                                        </div>
+                                    </div>
+                                </div>   
+                            </div>
+                            <div class="insights">
+                                <div class="sales">
+                                    <span class="material-icons-sharp">
+                                        analytics
+                                    </span>
+                                    <div class="middle">
+                                        <div class="right">
+                                            <h3> Number Of Forms</h3>
+                                            <h1 id="numberOfExams">31</h1>
+                                        </div>
+                                    </div>
+                                    <small class="text-muted">last 24 hours</small>
+                                </div>
+                                <div class="expenses">
+                                    <span class="material-icons-sharp">
+                                        bar_chart
+                                    </span>
+                                    <div class="middle">
+                                        <div class="right">
+                                            <h3> Number Of Requests </h3>
+                                            <h1>20</h1>
+                                        </div>
+                                    
+                                    </div>
+                                    <small class="text-muted">last 24 hours</small>
+                                </div>
+                                <div class="income">
+                                        <span class="material-icons-sharp">
+                                            analytics
+                                            </span>
+                                    
+                                    <div class="middle">
+                                        <div class="right">
+                                            <h3>Fill In Future</h3>
+                                            <h1 id="subscripeTrue"></h1>
+                                        </div>
+                                    </div>
+                                    <small class="text-muted">last 24 hours</small>
+                                </div>
+                                <div class="expenses">
+                                    <span class="material-icons-sharp">
+                                        analytics
+                                    </span>
+                                    <div class="middle">
+                                        <div class="right">
+                                            <h3>Fill In Future</h3>
+                                            <h1  id="subscripeFalse">0</h1>
+                                        </div>
+                                     
+                                    </div>
+                                    <small class="text-muted">last 24 hours</small>
+                                </div>
+                                <div class="expenses">
+                                    <span class="material-icons-sharp">
+                                        bar_chart
+                                    </span>
+                                    <div class="middle">
+                                        <div class="right">
+                                            <h3>Fill In Future</h3>
+                                            <h1>400LE</h1>
+                                        </div>
+                                    
+                                    </div>
+                                    <small class="text-muted">last 24 hours</small>
+                                </div>
+                                <div class="income">
+                                    <span class="material-icons-sharp">
+                                        stacked_line_chart
+                                    </span>
+                                    <div class="middle">
+                                        <div class="right">
+                                            <h3>Fill In Future</h3>
+                                            <h1>2400LE</h1>
+                                        </div>
+                                    </div>
+                                    <small class="text-muted">last 24 hours</small>
+                                </div>
+                            </div>
+                            <div class="col-12  float-end">
+                                <div class="recent-orders ">
+                                    <h2 style="margin: 1.5rem;">Chart Show Number Of Requests For Each Form</h2>
+                                    <div class="chart">
+                                        <canvas id="myChart" height="200"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!------------------- END OF INSGIHTS ---------------->
+                     
+                    </div>
+                </main>
+            </div>
+
+            <!-------------------- END OF MAIN --------------------->
+         
+        </div>
+    </div>
+
+
+
+    <script src="../scripts/bootstrap.bundle.min.js"></script>
+    <script src="../assest/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      
+    <script>
+        module={}
+    </script>    
+    <script type="module" src="./js/Tdash.js"></script>
+
+</body>
+
+
+</html>
