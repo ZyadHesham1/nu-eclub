@@ -51,13 +51,12 @@ loginForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const email = loginForm["login-email"].value;
   const password = loginForm["login-password"].value;
-  const name = loginForm["name"].value;
   const errorMessage = document.getElementById("error");
   document.getElementById("loginbtn").innerHTML="Loading... "
   errorMessage.innerHTML = "";
   signInWithEmailAndPassword(auth, email, password)
     .then((cred) => {
-        console.log(cred.user)
+         window.location.href = './DashBoard/dash.html'
         document.getElementById("loginbtn").innerHTML="SignIn"
     })
     .catch((error) => {
@@ -76,7 +75,7 @@ loginForm.addEventListener("submit", (e) => {
       document.getElementById("loginbtn").innerHTML="SignIn"
 
     });
-    console.log(e)
+ 
     loginForm.reset()
 });
 

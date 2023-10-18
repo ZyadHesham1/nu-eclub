@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 
 <head>
     <meta charset="UTF-8">
@@ -10,15 +10,34 @@
         integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel = "icon" href =  "images/icon.png"  type = "image/x-icon">
-        <link rel="stylesheet" href="../assest/bootstrap.min.css">
+        
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
 
     <link rel="stylesheet" href="../css/Dash.css">
+<style>
 
-    <title> Approve</title>
+.input-label-pair {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.input-label-pair label {
+    flex-basis: 30%; /* Adjust the width as needed */
+}
+
+.input-label-pair input,
+.input-label-pair h2,
+.input-label-pair select {
+    flex-grow: 1;
+}
+
+</style>
+    <title>Approve</title>
 </head>
 
 <body>
-    <div id="preloader"></div>
 
     <div class="container-fluid">
    <!-- Modal -->
@@ -26,29 +45,63 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title" id="exampleModalLabel"> تعديل بيانات</h2>
+                <h2 class="modal-title" id="exampleModalLabel"> Show Data </h2>
                 <i class="fa-solid fa-xmark close-modal" data-bs-dismiss="modal" aria-label="Close"></i>
             </div>
-            <div class="modal-body">
-                <label for="ModalUserName">اسم الطالب : </label> <input type="text"  id="ModalUserName" class="modal-input"> <br>
-                <label for="ModalEmail" >ايميل الطالب : </label> <h2   id="ModalEmail"  ></h2>
-                <label for="PASSWORD" > PASSWORD : </label> <h2   id="PASSWORD"  ></h2>
-                 <h2 id="place"  ></h2>
-                <label for="ModalUserphone" > رقم هاتف الطالب : </label><input type="number" id="ModalUserphone" class="modal-input">
-                <label for="ModalParentUserphone" > رقم هاتف ولي امر الطالب : </label><input type="number" id="ModalParentUserphone" class="modal-input">
-                <label for="ModalUserWhatsapp" > واتساب الطالب :  </label><input type="number" id="ModalUserWhatsapp" class="modal-input"><br>
-                <label for="ModalUserGov">محافظه الطالب : </label> <input type="text"  id="ModalUserGov" class="modal-input"> <br>
-                <label for="ModalUserMarkez"> المركز التابع له الطالب : </label> <input type="text"  id="ModalUserMarkez" class="modal-input"> <br>
-                <label for="ModalUserSchool">مدرسة الطالب : </label> <input type="text"  id="ModalUserSchool" class="modal-input"> <br>
-                <select name="status" id="statusOfSubscripe" class="modal-input">
-                    <option value="active">مفعل</option>
-                    <option value="notactice">غير مفعل </option>
-                </select>
+            <div class="modal-body" style="text-align: center;">
+                <div class="input-label-pair">
+                    <label for="ModalUserName">Full Name:</label>
+                    <input type="text" id="ModalUserName" class="modal-input">
+                </div>
+                <div class="input-label-pair">
+                    <label for="ModalEmail">NU Email:</label>
+                    <h2 id="ModalEmail"></h2>
+                </div>
+                <div class="input-label-pair">
+                    <label for="PhoneNumber">Phone Number:</label>
+                    <input type="number" id="PhoneNumber" class="modal-input">
+                </div>
+                <div class="input-label-pair">
+                    <label for="NuID">NU ID:</label>
+                    <input type="number" id="NuID" class="modal-input">
+                </div>
+                <div class="input-label-pair">
+                    <label for="School">School:</label>
+                    <input type="text" id="School" class="modal-input" >
+                </div>
+                <div class="input-label-pair">
+                    <label for="Major">Major:</label>
+                    <input type="text" id="Major" class="modal-input">
+                </div>
+                <div class="input-label-pair">
+                    <label for="ClassLevel">Class Level:</label>
+                    <input type="text" id="ClassLevel" class="modal-input">
+                </div>
+                <div class="input-label-pair">
+                    <label for="YesOrNO">Are You able to commit to regular meetings and events?</label>
+                    <input type="text" id="YesOrNO" class="modal-input" disabled>
+                </div>
+                <div class="input-label-pair">
+                    <label for="Committee">Committee:</label>
+                    <input type="text" id="Committee" class="modal-input">
+                </div>
+                <div class="input-label-pair">
+                    <label for="Comments">Comments:</label>
+                    <textarea type="text" id="Comments" cols="50" style="width: 100%; text-align: left;" class="modal-input"></textarea>
+                </div>
+                <div class="input-label-pair">
+                    <label for="statusOfRequest">Status of Request:</label>
+                    <select name="status" id="statusOfRequest" class="modal-input">
+                        <option value="Checked">Checked</option>
+                        <option value="UnChecked">Un Checked</option>
+                    </select>
+                </div>
             </div>
+            
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">غلق</button>
-                <button type="button" class="btn btn-primary" id="Save" data-bs-dismiss="modal">حفظ
-                    التغيرات</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="Save" data-bs-dismiss="modal">Save
+                    Changes</button>
             </div>
         </div>
     </div>
@@ -68,43 +121,26 @@
                 </div>
             </div>
             <div class="sidebar">
-                <a href="dash.html">
+                <a href="dash.html" >
                     <i class="fa-solid fa-gauge"></i>
-                    <h3>لوحه تحكمي</h3>
+                    <h3>DashBoard</h3>
                 </a>
-                <a href="addquiz.html">
+                <a href="AddForm.html"  >
                     <span class="material-icons-sharp">
                         quiz
-                    </span>
-                    <h3>اضافه امتحان</h3>
+                        </span>
+                    <h3> Add Form</h3>
                 </a>
-                <a href="mystudents.html">
-                    <i class="fa-solid fa-graduation-cap"></i>
-                    <h3>متابعة الطلاب</h3>
-                </a>
-                <a href="ReviewHomeWork.html">
-                    <i class="fa-solid fa-list-check"></i>
-                    <h3>مراجعة الواجب</h3>
-                </a>
-                <a href="AddVideo.html" >
-                    <i class="fa-solid fa-photo-film"></i>
-                    <h3>اضف فيديو</h3>
-                </a> 
-                <!-- <a href="AddFiles.html">
-                    <i class="fa-solid fa-file"></i>
-                    <h3>اضف ملازم</h3>
-                </a>  -->
-                <a href="approve.html" class="active" >
+
+
+                <a href="approve.html"  class="active">
                     <i class="fa-solid fa-user-plus"></i>
-                    <h3>طلبات التسجيل </h3>
+                    <h3>Requests</h3>
                 </a> 
-                <a href="#">
-                    <i class="fa-solid fa-gear"></i>
-                    <h3>الاعدادات</h3>
-                </a>
-                <button onclick="module.logOut()">
+       
+                <button  onclick="module.logOut()">
                     <i class="fa-solid fa-right-from-bracket"></i>
-                    <h3>تسجيل الخروج</h3>
+                    <h3>Log Out</h3>
                 </button>
             </div>
         </aside>
@@ -116,16 +152,12 @@
         <main>
             <div class="row">
                 <div class="col-md-6">
-                    <select name="Grde" id="Grade" class="Grade">
-                        <option selected value="Grade1">الصف الاول الثانوي</option>
-                        <option value="Grade2">الصف الثاني الثانوي </option>
-                        <option value="Grade3">الصف الثالث الثانوي</option>
-                    </select>
-                    <select name="Splace" id="Splace" class="Grade">
-                       <option >اختر المكان</option>
-                       <option value="online">اونلاين</option>
-                       <option value="center">سنتر</option>
-                       <option value="hosting">استضافه</option>
+                    <select name="searchBy" id="searchBy"  class="Grade" style="margin-top: -1rem; margin-left: 1rem;" >
+                        <option value="name">Student Name</option>
+                        <option value="NuID" selected>NU ID </option>
+                        <option value="Phone">Phone Number</option>
+                       
+                       
                     </select>
                 </div>
 
@@ -147,7 +179,7 @@
                             </div>
                             <div class="profile">
                                 <div class="info">
-                                    <p>اهلا بك،<b id="Tname"> </b></p>
+                                    <p>Welcome<b id="Tname"> </b></p>
                                 </div>
                        
                             </div>
@@ -161,23 +193,16 @@
             <div class="row">
                 <div class="col-md-12  col-sm-12">
                     <div class="student-table">
-                        <select name="searchBy" id="searchBy"  class="Grade" style="margin-top: -1rem;" >
-                            <option value="name">الاسم</option>
-                            <option value="phone" selected>رقم الهاتف</option>
-                            <option value="Code">كود الطالب </option>
-                            <option value="whatsapp"> whatsapp </option>
-                            <option value="parentPhone"> رقم ولي الامر </option>
-                           
-                        </select>
+                      
                         <!-- <input type="text" class="mx-auto" id="searchBar" placeholder="بحث.."> -->
-                        <input type="text" class="mx-auto" id="searchBar" placeholder="رقم الهاتف">
+                        <input type="text" class="mx-auto" id="searchBar" placeholder="" >
                 
                         <table id="myTable">
                             <thead>
                                 <th style="padding: 10px;"># </th>
-                                <th style="padding-left: 20px;">اسم الطالب</th>
-                                <th style="padding-left: 20px;">كود الطالب</th>
-                                <th style="padding-left: 20px;">حالة الحساب</th>
+                                <th style="padding-left: 20px;">Student Name</th>
+                                <th style="padding-left: 20px;"> NU ID</th>
+                                <th style="padding-left: 20px;"> Status </th>
                                 <th style="padding-left: 20px;"></th>
                                 <th style="padding-left: 20px;"></th>
                             </thead>
@@ -185,7 +210,6 @@
                           
                             </tbody>
                         </table>
-                        <!-- <button id="loadData">next >> </button> -->
                     </div>
                     <button id="toExcel" class="warning" style="padding: 1rem; border-radius:1rem; border: 1px solid ;">convertToExcel</button>
                 </div>
@@ -202,8 +226,7 @@
              <!-- Sheet JS 0.19.2 -->
 
 
-             <script src="../assest/bootstrap.bundle.min.js"></script>
-             <script src="../assest/bootstrap.min.js"></script>
+             <script src="../scripts/bootstrap.bundle.min.js"></script>
 
         
             <script>

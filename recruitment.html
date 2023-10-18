@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join Us!</title>
     <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
-
+ 
     <link rel="stylesheet" href="css/animate.css">     <!-- ------ wow css------->
 
     <link rel="stylesheet" href="css/all.css">     <!-- ------ font awesome css------->
@@ -18,161 +18,202 @@
 
     <link rel="stylesheet" href="css/index.css">         <!-- ---------main css-->
 </head>
+
 <body class="body-reg reg-color">
 
 
 
-  
-    
-    <div class="container-rec">
+  <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="success-animation ">
+          <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" /><path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" /></svg>
+        </div>
+      </div>
+      <div class="modal-body text-center " style="color: black;">
+        <h3>Your request has been sent successfully !</h3>
+      </div>
+      <div class="modal-footer mx-auto">
+        <button type="button" class="btn btn-primary"  data-bs-dismiss="modal" id="copyCode" > حسنا </button>
+      </div>
+    </div>
+  </div>
+</div>
 
+<button type="button"  style="display: none;" id="modelbtn" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button>
+
+    <div class="container-rec">
+    <a href="./index.html">  <img src="./img/logo.png" style="border-radius: 50%; border: 1px solid black; width: 15%; position: absolute; top: 10px;" alt="logo" srcset=""> </a>
         <section class="registration mt-45" id="registration">
+          
             <div class="container">
                 <h1 class="text-title mb-30 mt-50 title-frame">Registration</h1>
-                <form>
-                  <div class="form-group1">
+                <form id="mainForm">
+                  <div class="form-group my-2">
                     <label for="formGroupExampleInput">Full Name</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Your Full Name" required>
+                    <input type="text" class="form-control" name="FullName" placeholder="Your Full Name" required>
                   </div>
-                  <div class="form-group">
+                  <div class="form-group my-2">
                     <label for="formGroupExampleInput2">NU Email</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="j.anderson@nu.edu.eg" required>
+                    <input type="email" class="form-control" id="NuEmail" placeholder="j.anderson@nu.edu.eg" required>
                   </div>
-                  <div class="form-group">
+                  <div class="form-group my-2">
                     <label for="formGroupExampleInput2">NU ID</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="221000500" required>
+                    <input type="number" class="form-control" id="NuID" placeholder="221000500" required>
                   </div>
-                  <div class="form-group">
-                    <label for="formGroupExampleInput2">Mobile Number</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="0121371XXXX" required>
+                  <div class="form-group my-2">
+                    <label for="formGroupExampleInput2">Phone Number (WhatsApp)</label>
+                    <input type="number" class="form-control" id="PhoneNumber" placeholder="0121371XXXX" required>
                   </div>
-                  <fieldset class="form-group">
+                  <fieldset class="form-group my-2">
                     <div class="row">
-                      <legend class="col-form-label col-sm-2 pt-0">School</legend>
+                      <legend class="col-form-label col-sm-2 pt-0 w-100">School</legend>
                       <div class="col-sm-10">
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" >
+                          <input class="form-check-input" type="radio" name="School" id="gridRadios1" value="Business" required>
                           <label class="form-check-label" for="gridRadios1">
                             Business
                           </label>
                         </div>
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2" >
+                          <input class="form-check-input" type="radio" name="School" id="gridRadios2" value="Biotechnology" required>
                           <label class="form-check-label" for="gridRadios2">
                             Biotechnology
                           </label>
                         </div>
                         <div class="form-check disabled">
-                          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" >
+                          <input class="form-check-input" type="radio" name="School" id="gridRadios3" value="Computer Science"  required>
                           <label class="form-check-label" for="gridRadios3">
                             Computer Science
                           </label>
                         </div>
                         <div class="form-check disabled">
-                          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" >
-                          <label class="form-check-label" for="gridRadios3">
+                          <input class="form-check-input" type="radio" name="School" id="gridRadios4" value="Engineering" required >
+                          <label class="form-check-label" for="gridRadios4">
                             Engineering
                           </label>
                         </div>
                       </div>
                     </div>
                   </fieldset>
-                  <div class="form-group">
+                  <div class="form-group my-2">
                     <label for="formGroupExampleInput2">Major</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="BA / ECE" required>
+                    <input type="text" class="form-control" name="Major" placeholder="BA / ECE" required>
                   </div>
       
-                  <fieldset class="form-group">
+                  <fieldset class="form-group my-2">
                     <div class="row">
-                      <legend class="col-form-label col-sm-2 pt-0">Class Level</legend>
+                      <legend class="col-form-label col-sm-2 pt-0 w-100">Class Level</legend>
                       <div class="col-sm-10">
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="gridRadios2" id="gridRadios1" value="option1">
-                          <label class="form-check-label" for="gridRadios1">
+                          <input class="form-check-input" type="radio" name="classLevel" id="gridRadios11" value="Freshman"required>
+                          <label class="form-check-label" for="gridRadios11">
                             Freshman
                           </label>
                         </div>
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="gridRadios2" id="gridRadios2" value="option2" >
-                          <label class="form-check-label" for="gridRadios2">
+                          <input class="form-check-input" type="radio" name="classLevel" id="gridRadios12" value="Sophomore" required>
+                          <label class="form-check-label" for="gridRadios12">
                             Sophomore
                           </label>
                         </div>
                         <div class="form-check disabled">
-                          <input class="form-check-input" type="radio" name="gridRadios2" id="gridRadios3" value="option3" >
-                          <label class="form-check-label" for="gridRadios3">
+                          <input class="form-check-input" type="radio" name="classLevel" id="gridRadios13" value="Junior" required>
+                          <label class="form-check-label" for="gridRadios13">
                             Junior
                           </label>
                         </div>
                         <div class="form-check disabled">
-                          <input class="form-check-input" type="radio" name="gridRadios2" id="gridRadios3" value="option3">
-                          <label class="form-check-label" for="gridRadios3">
+                          <input class="form-check-input" type="radio" name="classLevel" id="gridRadios14" value="Senior I"required>
+                          <label class="form-check-label" for="gridRadios14">
                             Senior I
                           </label>
                         </div>
                         <div class="form-check disabled">
-                          <input class="form-check-input" type="radio" name="gridRadios2" id="gridRadios3" value="option3">
-                          <label class="form-check-label" for="gridRadios3">
+                          <input class="form-check-input" type="radio" name="classLevel" id="gridRadios15" value="Senior II (Engineering Only)" required>
+                          <label class="form-check-label" for="gridRadios15">
                             Senior II (Engineering Only)
                           </label>
                         </div>
-                        <div class="input-group mb-3">
-                          <input type="file" class="form-control" id="inputGroupFile02">
-                          <label class="input-group-text" for="inputGroupFile02">Upload</label>
-                        </div>
+                        
                       </div>
                     </div>
                   </fieldset>
-                
 
-                <button class="next-btn">
-                  <span class="btn-text">Next</span>
+                  <fieldset class="form-group my-2">
+                    <div class="row">
+                      <legend class="col-form-label col-sm-2 pt-0 w-100">Are you able to commit to regular meetings and events ? </legend>
+                      <div class="col-sm-10">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="yesOrNo" id="gridRadios21" value="Yes"required>
+                          <label class="form-check-label" for="gridRadios21">
+                            Yes
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="yesOrNo" id="gridRadios22" value="No"required >
+                          <label class="form-check-label" for="gridRadios22">
+                            No
+                          </label>
+                        </div>
+                  
+                      </div>
+                    </div>
+                  </fieldset>
+
+                  <fieldset class="form-group my-2">
+                    <div class="row">
+                      <legend class="col-form-label col-sm-2 pt-0 w-100">Choose the Committee you're applying for </legend>
+                      <div class="col-sm-10">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="Committee" id="gridRadios31" value="HR" required>
+                          <label class="form-check-label" for="gridRadios31">
+                            HR
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="Committee" id="gridRadios32" value="PR"required >
+                          <label class="form-check-label" for="gridRadios32">
+                            PR
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="Committee" id="gridRadios33" value="media"required>
+                          <label class="form-check-label" for="gridRadios33">
+                            media
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="Committee" id="gridRadios34" value="Marketing"required>
+                          <label class="form-check-label" for="gridRadios34">
+                            Marketing
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="Committee" id="gridRadios35" value="Academics"required >
+                          <label class="form-check-label" for="gridRadios35">
+                            Academics
+                          </label>
+                        </div>
+                  
+                      </div>
+                    </div>
+                  </fieldset>
+                  <div class="form-group my-2">
+                    <label for="formGroupExampleInput2">Any comments</label>
+                    <textarea type="text" class="form-control" name="Comments" cols placeholder=""></textarea>
+                  </div>
+      
+
+                <button class="next-btn mx-auto">
+                  <span class="btn-text">Submit</span>
                 </button>
 
 
-                <fieldset class="form-group2 container-rec">
-                  <div class="row">
-                    <h1 class="text-title mb-30 mt-50 title-frame">Personal info</h1>
-
-                    <h6 class="container-rec reg-color">Have you been a part of any student clubs or organizations before?</h6>
-                    <div class="col-sm-10">
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1">
-                        <label class="form-check-label" for="gridRadios1">
-                          Yes
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2" >
-                        <label class="form-check-label" for="gridRadios2">
-                          No
-                        </label>
-                    </div>
-
-                    <div class="form-group1">
-                      <label for="formGroupExampleInput">If yes, please provide details:</label>
-                      <input type="text" class="form-control" id="formGroup2Input" placeholder="Enter Your Answer" >
-                    </div>
-
-                    <div class="form-group1">
-                      <label for="formGroupExampleInput">List any relevant skills or certifications</label>
-                      <input type="text" class="form-control" id="formGroup2Input" placeholder="Enter Your Answer" required>
-                    </div>
-
-                  </div>
-                  <div class="buttons">
-
-                    <button class="back-btn">
-                    <span class="btn-text">Back</span>
-                    </button>
-
-                    <button class="next-btn">
-                      <span class="btn-text">Next</span>
-                    </button>
-
-                  </div>
-                </fieldset>
-                
 
 
               </form>
@@ -184,9 +225,9 @@
     </div>
 
 
+<script src="./scripts/bootstrap.bundle.min.js"></script>
 
-
- <script src="scripts/index.js"></script>                <!-- ---------- main js ---------- -->
+ <script type="module" src="scripts/recruitment.js"></script>                <!-- ---------- main js ---------- -->
 
 </body>
 </html>

@@ -28,34 +28,29 @@ import {
 
 // Your web app's Firebase configuration
 const dbfirebaseConfig = {
-  apiKey: "AIzaSyChX6oD8uA1tWR_hNzcVzOOZMYwXsLW-TA",
-  authDomain: "allasharaf.firebaseapp.com",
-  databaseURL: "https://allasharaf-default-rtdb.firebaseio.com",
-  projectId: "allasharaf",
-  storageBucket: "allasharaf.appspot.com",
-  messagingSenderId: "638342504235",
-  appId: "1:638342504235:web:f3350e5bb8a63e41bc2f6e"
+  apiKey: "AIzaSyC5WeGIodvlJQae25nOP_NI9Ep_mFJ0q0c",
+  authDomain: "e-club-550da.firebaseapp.com",
+  projectId: "e-club-550da",
+  storageBucket: "e-club-550da.appspot.com",
+  messagingSenderId: "950187934193",
+  appId: "1:950187934193:web:cf897fd51613079c598450"
 };
 
 const dbApp= initializeApp(dbfirebaseConfig,"db");
 const db = getDatabase(dbApp);
 const authConfig = {
-  apiKey: "AIzaSyChX6oD8uA1tWR_hNzcVzOOZMYwXsLW-TA",
-  authDomain: "allasharaf.firebaseapp.com",
-  databaseURL: "https://allasharaf-default-rtdb.firebaseio.com",
-  projectId: "allasharaf",
-  storageBucket: "allasharaf.appspot.com",
-  messagingSenderId: "638342504235",
-  appId: "1:638342504235:web:f3350e5bb8a63e41bc2f6e"
+  apiKey: "AIzaSyC5WeGIodvlJQae25nOP_NI9Ep_mFJ0q0c",
+  authDomain: "e-club-550da.firebaseapp.com",
+  projectId: "e-club-550da",
+  storageBucket: "e-club-550da.appspot.com",
+  messagingSenderId: "950187934193",
+  appId: "1:950187934193:web:cf897fd51613079c598450"
 };
 const authApp = initializeApp(authConfig, "auth");
 const auth = getAuth(authApp);
 const dbRef = ref(db);
-let AssistantWith;
-let subjectSelcted;
 
 const userName = document.getElementById("userName");
-let Grade = document.getElementById("Grade");
 let tbody = document.getElementById("tbody");
 // =================== FOR DESGIN ============= //
 const themeToggler = document.querySelector(".theme-toggler");
@@ -136,7 +131,6 @@ let ts = tbody.getElementsByTagName("tr");
 
 function searchTabel(searchProperty) {
   let filter = searchBar.value;
-  console.log("Dad");
   let found;
   for (let i = 0; i < ts.length; i++) {
     let td = ts[i].getElementsByClassName(searchProperty);
@@ -175,191 +169,96 @@ searchBy()
 
 // ===================== GetUserDataByCode====================== //
 function GetUserDataByCode(id) {
-  let userID = id.slice(1);
-  let codetemp;
-  let statusOfSubscripeModal = document.getElementById("statusOfSubscripe");
+
+  let ID = id.slice(1);
+ 
   let ModalUserName = document.getElementById("ModalUserName");
   let ModalEmail = document.getElementById("ModalEmail");
-  let ModalUserphone = document.getElementById("ModalUserphone");
-  let ModalParentUserphone = document.getElementById("ModalParentUserphone");
-  let ModalUserWhatsapp = document.getElementById("ModalUserWhatsapp");
-  let ModalUserGov = document.getElementById("ModalUserGov");
-  let ModalUserMarkez = document.getElementById("ModalUserMarkez");
-  let ModalUserSchool = document.getElementById("ModalUserSchool");
-  let PASSWORD =document.getElementById("PASSWORD")
-  let place =document.getElementById("place")
-  get(child(dbRef, "userData/" + userID)).then((snapshot) => {
-    ModalUserName.value = snapshot.val().name;
-    ModalEmail.innerHTML = snapshot.val().Email;
-    ModalUserphone.value = snapshot.val().phone;
-    ModalParentUserphone.value = snapshot.val().parentPhone;
-    ModalUserWhatsapp.value = snapshot.val().WhatsApp;
-    ModalUserGov.value = snapshot.val().government;
-    ModalUserMarkez.value = snapshot.val().Markez;
-    ModalUserSchool.value = snapshot.val().scoolName;
-    PASSWORD.innerHTML = snapshot.val().password
-    codetemp = snapshot.val().code;
-    
-    if(snapshot.val().place=="online") {
-      console.log("done1")
-      place.innerHTML = "اونلاين"
-    }else if(snapshot.val().place=="center") {
-      console.log("done2")
+  let PhoneNumber = document.getElementById("PhoneNumber");
+  let NuID = document.getElementById("NuID");
+  let School = document.getElementById("School");
+  let Major = document.getElementById("Major");
+  let ClassLevel = document.getElementById("ClassLevel");
+  let YesOrNO = document.getElementById("YesOrNO");
+  let Committee =document.getElementById("Committee")
+  let statusOfRequest = document.getElementById("statusOfRequest");
+  let Comments = document.getElementById('Comments')
+  get(child(dbRef, "UserRequests/"+'General/' +'Form1/'  + ID)).then((snapshot) => {
+    ModalUserName.value = snapshot.val().FullName;
+    ModalEmail.innerHTML = snapshot.val().NuEmail ;
+    PhoneNumber.value = snapshot.val().PhoneNumber;
+    NuID.value = snapshot.val().NuID;
+    School.value = snapshot.val().School;
+    Major.value = snapshot.val().Major;
+    ClassLevel.value = snapshot.val().classLevel;
+    YesOrNO.value = snapshot.val().yesOrNo ;
+    Committee.value = snapshot.val().Committee;
+    Comments.value = snapshot.val().Comments
+    statusOfRequest.value = snapshot.val().status ? "Checked" : "UnChecked";
 
-      place.innerHTML = "سنتر"
-    }else{
-
-      place.innerHTML = "استضافه"
-    }
-
-    if (snapshot.val().subscripeStatus) {
-      statusOfSubscripeModal.value = "active";
-    } else {
-      statusOfSubscripeModal.value = "notactice";
-    }
     
   });
+
   document.getElementById("Save").onclick = () => {
-    update(ref(db, "userData/" + userID), {
-      name: ModalUserName.value,
-      phone: ModalUserphone.value,
-      parentPhone: ModalParentUserphone.value,
-      WhatsApp: ModalUserWhatsapp.value,
-      government: ModalUserGov.value,
-      Markez: ModalUserMarkez.value,
-      scoolName: ModalUserSchool.value,
+    update(ref(db,"UserRequests/"+'General/' +'Form1/'  + ID), {
+      FullName: ModalUserName.value ,
+      NuEmail: ModalEmail.innerHTML,
+      PhoneNumber: PhoneNumber.value,
+      NuID: NuID.value,
+      School: School.value,
+      Major: Major.value,
+      yesOrNo : YesOrNO.value,
+      classLevel: ClassLevel.value,
+      Committee: Committee.value,
+      Comments : Comments.value,
+      status: statusOfRequest.value== "Checked"?true : false ,
     }).then(() => {
-      document.getElementById(`N${codetemp}`).innerHTML = ModalUserName.value;
-    });
+
+
+
+      });
   };
 
   // ====================== Change STATUS =========== //
-  statusOfSubscripeModal.onchange = () => {
-    if (statusOfSubscripeModal.value == "active") {
-      update(ref(db, "userData/" + userID), {
-        subscripeStatus: true,
+  statusOfRequest.onchange = () => {
+    if (statusOfRequest.value == "Checked") {
+      update(ref(db, "UserRequests/"+'General/' +'Form1/' + ID), {
+        status: true,
       }).then(() => {
-        get(child(dbRef, "userData/" + userID)).then((snapshot) => {
-          document.getElementById(`${snapshot.val().code}`).innerHTML = "مفعل";
+        get(child(dbRef, "UserRequests/"+'General/' +'Form1/'  + ID)).then((snapshot) => {
+          document.getElementById(`${snapshot.val().NuID}`).innerHTML = "Checked";
           document
-            .getElementById(`${snapshot.val().code}`)
+            .getElementById(`${snapshot.val().NuID}`)
             .classList.add("success");
           document
-            .getElementById(`${snapshot.val().code}`)
+            .getElementById(`${snapshot.val().NuID}`)
             .classList.remove("danger");
         });
         console.log("data updated");
       });
     } else {
-      update(ref(db, "userData/" + userID), {
-        subscripeStatus: false,
+      update(ref(db,"UserRequests/"+'General/' +'Form1/' + ID), {
+        status: false,
       }).then(() => {
-        get(child(dbRef, "userData/" + userID)).then((snapshot) => {
-          document.getElementById(`${snapshot.val().code}`).innerHTML = "متوقف";
+        get(child(dbRef, "UserRequests/"+'General/' +'Form1/'  + ID)).then((snapshot) => {
+          document.getElementById(`${snapshot.val().NuID}`).innerHTML = "Un Checked";
           document
-            .getElementById(`${snapshot.val().code}`)
+            .getElementById(`${snapshot.val().NuID}`)
             .classList.add("danger");
           document
-            .getElementById(`${snapshot.val().code}`)
+            .getElementById(`${snapshot.val().NuID}`)
             .classList.remove("success");
         });
         console.log("data updated");
       });
     }
+
   };
 
-  // ====================== =========== //
 
-  // plusToBouns.onclick = ()=>{
-
-  // }
-  // minusToBouns.onclick = ()=>{
-  //     update(
-  //         ref(
-  //           db, "userData/" + userID
-  //         ),
-  //         {
-  //          totalBonus : bounsTemp - +bounsInput.value
-  //         }
-  //       ).then(() => {
-  //         console.log("data updated");
-  //       });
-  // }
 }
 module.GetUserDataByCode = GetUserDataByCode;
 
-function GetUserChartDataByCode(id) {
-  let userID = id.slice(1);
-  console.log(userID);
-  let Grade;
-  let SubscripeWith;
-
-  get(child(dbRef, "userData/" + userID)).then((snapshot) => {
-    if (snapshot.exists()) {
-      Grade = snapshot.val().Grade;
-      SubscripeWith = snapshot.val().SubscripeWith;
-
-      let arr2 = [];
-      const dbRef3 = ref(
-        db,
-        "userData/" + userID + `/${Grade}/` + "scores/" + `${subjectSelcted}`
-      );
-      onValue(
-        dbRef3,
-        (snapshot) => {
-          snapshot.forEach((childSnapshot) => {
-            const childKey = childSnapshot.key;
-            const childData = childSnapshot.val();
-
-            console.log(childKey);
-
-            arr2.push(childData.score);
-            console.log(arr2);
-
-            myChart.data.datasets[0].data = arr2;
-            myChart.update();
-          });
-        },
-        {
-          onlyOnce: true,
-        }
-      );
-
-      // ========= get names of EXMAS ========//
-      let arr = [];
-      const dbRef2 = ref(
-        db,
-        `${SubscripeWith}/` +
-          `${Grade}/` +
-          "QuizesSubject/" +
-          `${subjectSelcted}/` +
-          "QuizesData"
-      );
-      onValue(
-        dbRef2,
-        (snapshot) => {
-          snapshot.forEach((childSnapshot) => {
-            const childKey = childSnapshot.key;
-            const childData = childSnapshot.val();
-
-            console.log(childData.Time, childKey);
-
-            arr.push(childData.Name);
-            console.log(arr);
-            myChart.data.labels = arr;
-            myChart.update();
-            console.log(myChart);
-          });
-        },
-        {
-          onlyOnce: true,
-        }
-      );
-      // ========= END ========//
-    }
-  });
-}
-module.GetUserChartDataByCode = GetUserChartDataByCode;
 
 // =====================END GetUserDataByCode ====================== //
 
@@ -389,43 +288,24 @@ document.getElementById("toExcel").addEventListener('click',async()=>{
 // ====================== Change STATUS =========== //
 
 // ====================== =========== //
-const place = document.getElementById("Splace");
 onAuthStateChanged(auth, (user) => {
   if (user) {
-    function onchange1() {
-      document.getElementById("preloader").style.display="inline"
 
+      // document.getElementById("preloader").style.display="inline"
       tbody.innerHTML = "";
-      place.innerHTML =`
-      <option >اختر المكان</option>
-      <option value="online">اونلاين</option>
-      <option value="center">سنتر</option>
-      <option value="hosting">استضافه</option>
-      `
+ 
       newTabel.innerHTML = `
-      <th style="padding-left: 20px;">اسم الطالب</th>
-      <th style="padding-left: 20px;">كود الطالب</th>
-      <th style="padding-left: 20px;"> رقم هاتف الطالب</th>
-      <th style="padding-left: 20px;">رقم هاتف ولي الامر</th>
-      <th style="padding-left: 20px;"> whatsApp</th>
-      <th style="padding-left: 20px;">المحافظه </th>
-      <th style="padding-left: 20px;"> المركز</th>
-      <th style="padding-left: 20px;"> اسم المدرسه</th>
-    
+      <th style="padding-left: 20px;"> Full Name </th>
+      <th style="padding-left: 20px;"> NU Email</th>
+      <th style="padding-left: 20px;"> Phone Number   </th>
+      <th style="padding-left: 20px;">  NU ID </th>
+      <th style="padding-left: 20px;">School </th>
+      <th style="padding-left: 20px;"> Class Level</th>
+      <th style="padding-left: 20px;">  Committee</th>
+      <th style="padding-left: 20px;">  Comments</th>
       `
-      grade = Grade.value;
-      let stat;  
-      let teacherName = document.getElementById("Tname");
-      get(child(dbRef, "userData/" + user.uid)).then((snapshot) => {
-        if (snapshot.exists()) {
-          AssistantWith = "Marina";
-          subjectSelcted = "Bio";
-          stat = snapshot.val().status   
-          teacherName.innerHTML = snapshot.val().name;
-          if (stat != "Teacher" || stat == undefined) {
-            window.location.href = "../login.html";
-          }
-          const dbRef = ref(db, "userData/");
+    
+          const dbRef = ref(db,"UserRequests/"+'General/' +'Form1/' );
           onValue(
             dbRef,
             (snapshot) => {
@@ -434,145 +314,54 @@ onAuthStateChanged(auth, (user) => {
                 const childData = childSnapshot.val();
                 let stat;
                 let clas;
-                if (grade == childData.Grade) {
-                  if (childData.subscripeStatus) {
-                    stat = "مفعل";
+                  if (childData.status) {
+                    stat = "checked";
                     clas = "success";
                   } else {
-                    stat = "غير مفعل";
+                    stat = "Un Checked";
                     clas = "danger";
                   }
-                  if (childData.SubscripeWith == AssistantWith) {
+
                     tbody.innerHTML += `
                           <tr>
                               <td></td>
-                              <td id="N${childData.code}" style="line-height: 20px;"><span ><i class="fa-solid "></i></span>${childData.name}</td>
-                              <td id="code" class="Code">${childData.code}</td>
-                              <td  class="phone" style  = "display:none;">${childData.phone}</td>
-                              <td  class="name" style  = "display:none;">${childData.name}</td>
-                              <td  class="whatsapp" style  = "display:none;">${childData.WhatsApp}</td>
-                              <td  class="parentPhone" style  = "display:none;">${childData.parentPhone}</td>
-                              <td><h2 class="${clas}" id="${childData.code}">${stat}</h2></td>
-                              <td class="enter"><button class="primary"  id="M${childKey}" onclick="module.GetUserDataByCode(this.id)" data-bs-toggle="modal" data-bs-target="#exampleModal">عرض البيانات<i class="fa-solid fa-pen-to-square me-3"></i></button> </td>
+                              <td id="N${childData.NuID}" class="name" style="line-height: 20px;"><span ><i class="fa-solid "></i></span>${childData.FullName}</td>
+                              <td id="code" class="NuID">${childData.NuID}</td>
+                              <td  class="Phone" style = "display:none;">${childData.PhoneNumber}</td>
+                              <td><h2 class="${clas}" id="${childData.NuID}">${stat}</h2></td>
+                              <td class="enter"><button class="primary"  id="M${childKey}" onclick="module.GetUserDataByCode(this.id)" data-bs-toggle="modal" data-bs-target="#exampleModal">Show Data <i class="fa-solid fa-pen-to-square me-3"></i></button> </td>
                           </tr>
                         `;
 
                         newTabel.innerHTML += `
                         <tr>
-                            <td  style="line-height: 20px;"><span ><i class="fa-solid "></i></span>${childData.name}</td>
-                            <td class="Code">${childData.code}</td>
-                            <td class="Code">${childData.phone}</td>
-                            <td class="Code">${childData.parentPhone}</td>
-                            <td class="Code">${childData.WhatsApp}</td>
-                            <td class="Code">${childData.government}</td>
+                            <td  style="line-height: 20px;"><span ><i class="fa-solid "></i></span>${childData.FullName}</td>
+                            <td class="Code">${childData.NuEmail}</td>
+                            <td class="Code">${childData.PhoneNumber}</td>
+                            <td class="Code">${childData.NuID}</td>
+                            <td class="Code">${childData.School}</td>
+                            <td class="Code">${childData.classLevel}</td>
                             <td class="Code">${childData.Markez}</td>
-                            <td class="Code">${childData.scoolName}</td>
+                            <td class="Code">${childData.Committee}</td>
+                            <td class="Code">${childData.Comments}</td>
                         </tr>
                       `;
-                  }
-                }
-                setTimeout(sortTable, 700);
-                setTimeout(Settrteb, 1500);
-              });
-              document.getElementById("preloader").style.display="none"
-            },
-            {
-              onlyOnce: true,
-            }
-          );
-        }
-      });
-    }
-    function onchange2(){
-      document.getElementById("preloader").style.display="inline"
 
-      tbody.innerHTML = "";
-      newTabel.innerHTML = `
-      <th style="padding-left: 20px;">اسم الطالب</th>
-      <th style="padding-left: 20px;">كود الطالب</th>
-      <th style="padding-left: 20px;"> رقم هاتف الطالب</th>
-      <th style="padding-left: 20px;">رقم هاتف ولي الامر</th>
-      <th style="padding-left: 20px;"> whatsApp</th>
-      <th style="padding-left: 20px;">المحافظه </th>
-      <th style="padding-left: 20px;"> المركز</th>
-      <th style="padding-left: 20px;"> اسم المدرسه</th>
+        
     
-      `
-      grade = Grade.value;
-      let stat;  
-      let teacherName = document.getElementById("Tname");
-      get(child(dbRef, "userData/" + user.uid)).then((snapshot) => {
-        if (snapshot.exists()) {
-          AssistantWith = "Marina";
-          subjectSelcted = "Bio";
-          stat = snapshot.val().status   
-          teacherName.innerHTML = snapshot.val().name;
-          if (stat != "Teacher" || stat == undefined) {
-            window.location.href = "../login.html";
-          }
-          const dbRef = ref(db, "userData/");
-          onValue(
-            dbRef,
-            (snapshot) => {
-              snapshot.forEach((childSnapshot) => {
-                const childKey = childSnapshot.key;
-                const childData = childSnapshot.val();
-                let stat;
-                let clas;
-                if (grade == childData.Grade &&place.value==childData.place) {
-                  if (childData.subscripeStatus) {
-                    stat = "مفعل";
-                    clas = "success";
-                  } else {
-                    stat = "غير مفعل";
-                    clas = "danger";
-                  }
-                  if (childData.SubscripeWith == AssistantWith) {
-                    tbody.innerHTML += `
-                          <tr>
-                              <td></td>
-                              <td id="N${childData.code}" style="line-height: 20px;"><span ><i class="fa-solid "></i></span>${childData.name}</td>
-                              <td id="code" class="Code">${childData.code}</td>
-                              <td  class="phone" style  = "display:none;">${childData.phone}</td>
-                              <td  class="name" style  = "display:none;">${childData.name}</td>
-                              <td  class="whatsapp" style  = "display:none;">${childData.WhatsApp}</td>
-                              <td  class="parentPhone" style  = "display:none;">${childData.parentPhone}</td>
-                              <td><h2 class="${clas}" id="${childData.code}">${stat}</h2></td>
-                              <td class="enter"><button class="primary"  id="M${childKey}" onclick="module.GetUserDataByCode(this.id)" data-bs-toggle="modal" data-bs-target="#exampleModal">عرض البيانات<i class="fa-solid fa-pen-to-square me-3"></i></button> </td>
-                          </tr>
-                        `;
-
-
-                        newTabel.innerHTML += `
-                        <tr>
-                            <td  style="line-height: 20px;"><span ><i class="fa-solid "></i></span>${childData.name}</td>
-                            <td class="Code">${childData.code}</td>
-                            <td class="Code">${childData.phone}</td>
-                            <td class="Code">${childData.parentPhone}</td>
-                            <td class="Code">${childData.WhatsApp}</td>
-                            <td class="Code">${childData.government}</td>
-                            <td class="Code">${childData.Markez}</td>
-                            <td class="Code">${childData.scoolName}</td>
-                        </tr>
-                      `;
-
-                  }
-                }
-                setTimeout(sortTable, 700);
-                setTimeout(Settrteb, 1500);
+               
               });
-              document.getElementById("preloader").style.display="none"
+              setTimeout(sortTable, 500);
+              setTimeout(Settrteb, 500);
+              // document.getElementById("preloader").style.display="none"
             },
             {
               onlyOnce: true,
             }
           );
-        }
-      });
-    }
-    Grade.onchange = onchange1;
-    place.onchange = onchange2;
-    onchange1();
+    
+     
+  
   } else {
     window.location.href = "../login.html";
   }
